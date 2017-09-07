@@ -60,7 +60,7 @@ class ViewController: UIViewController {
             view.addSubview(drawView)
         } else {
             print("采用cashapelayer")
-            navigationController?.pushViewController(ShapeLayerAnimation(), animated: true)
+            navigationController?.pushViewController(ShapeLayerAnimation(), animated: false)
         }
     }
 }

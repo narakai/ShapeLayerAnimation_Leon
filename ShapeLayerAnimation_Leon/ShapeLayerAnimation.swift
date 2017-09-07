@@ -39,7 +39,6 @@ class ShapeLayerAnimation: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setupView()
     }
 
     private func setupView() {
@@ -84,6 +83,14 @@ class ShapeLayerAnimation: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "ShapeLayer动画"
+        setupView()
+        //自定义返回按钮
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(backTapped))
+    }
+
+    func backTapped(sender: UIBarButtonItem) {
+        navigationController?.popViewController(animated: false)
+        view.layer.removeAllAnimations()
     }
 }
 
