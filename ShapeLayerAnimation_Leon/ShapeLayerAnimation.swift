@@ -37,10 +37,6 @@ class ShapeLayerAnimation: UIViewController {
         super.didReceiveMemoryWarning()
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-
     private func setupView() {
         view.layer.addSublayer(circle)
 
@@ -80,18 +76,27 @@ class ShapeLayerAnimation: UIViewController {
         }
     }
 
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        UIView.setAnimationsEnabled(false)
+    }
+
+//    override func viewDidDisappear(_ animated: Bool) {
+//        UIView.setAnimationsEnabled(false)
+//    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "ShapeLayer动画"
         setupView()
         //自定义返回按钮
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(backTapped))
+//        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(backTapped))
     }
 
-    func backTapped(sender: UIBarButtonItem) {
-        navigationController?.popViewController(animated: false)
-        view.layer.removeAllAnimations()
-    }
+//    func backTapped(sender: UIBarButtonItem) {
+//        navigationController?.popViewController(animated: false)
+//        view.layer.removeAllAnimations()
+//    }
 }
 
 extension ShapeLayerAnimation: CAAnimationDelegate {
