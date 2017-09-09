@@ -71,6 +71,7 @@ class ShapeLayerAnimation: UIViewController {
             path2.addLine(to: CGPoint(x: x + Double(len) * cos(2 * Double.pi / Double(count) * Double(i)),
                     y: y - Double(len) * sin(2 * Double.pi / Double(count) * Double(i))))
 
+            //关联线条和贝塞尔曲线
             line.path = path2.cgPath
             line.add(animation, forKey: nil)
         }
